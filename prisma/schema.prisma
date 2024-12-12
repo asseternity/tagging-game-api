@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Task {
+  id        Int      @id @default(autoincrement())
+  text      String
+  winText   String
+  coordX    Float
+  coordY    Float
+  radius    Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Score {
+  id        Int      @id @default(autoincrement())
+  playerName String  // Name entered by the player
+  value      Int     // The score value
+  createdAt  DateTime @default(now())
+}

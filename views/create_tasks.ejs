@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TG - Create Tasks</title>
+  </head>
+
+  <body>
+    <% if (admin !== null) { %>
+    <h2>Create a task</h2>
+    <form action="/api/new-task" method="POST">
+      <label for="text">Text</label>
+      <input type="text" id="text" name="text" />
+      <label for="winText">WinText</label>
+      <input type="text" id="winText" name="winText" />
+      <label for="coordX">CoordX</label>
+      <input type="text" id="coordX" name="coordX" />
+      <label for="coordY">CoordY</label>
+      <input type="text" id="coordY" name="coordY" />
+      <label for="radius">Radius</label>
+      <input type="text" id="radius" name="radius" />
+      <button>Create a task</button>
+    </form>
+    <br />
+    <h2>Delete tasks</h2>
+    <% for (let i = 0; i < tasks.length; i++) { %>
+    <ul>
+      <li>
+        Task: <%= tasks[i].text %> | WinText: <%= tasks[i].winText %> | x: <%=
+        tasks[i].coordX %> | y: <%= tasks[i].coordY %> | radius: <%=
+        tasks[i].radius %>
+        <form
+          action="/api/delete_task/<%= tasks[i].id %>"
+          method="POST"
+          style="display: inline"
+        >
+          <button type="submit">Delete task</button>
+        </form>
+      </li>
+    </ul>
+    <% } %> <% } else { %>
+    <h1>Please verify admin access.</h1>
+    <form action="/api/log-in" method="POST">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" />
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" />
+      <button>Log in</button>
+    </form>
+    <% } %>
+  </body>
+</html>
