@@ -122,7 +122,7 @@ const postCheckIfHighScore = async (req, res, next) => {
     // check if there are more than 5 scores
     if (allScores.length > 4) {
       const playerScore = parseInt(req.body.playerScore);
-      if (playerScore > allScores[4]) {
+      if (playerScore > allScores[4].value) {
         return res.status(200).json(true);
       } else {
         return res.status(200).json(false);

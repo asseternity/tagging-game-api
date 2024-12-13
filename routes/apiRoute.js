@@ -17,8 +17,8 @@ const apiController = require("../controllers/apiController");
 // [v] game completed if no tasks
 // [v] tell me if my high score is top 5 or not (auto yes if less then 5 scores)
 // [v] post to update the top 5 scores if yes (frontend should then show a form to write in your username)
-// [_] bug: keys of the high scores
-// [_] bug: incorrect testing if it is the high score
+// [v] bug: keys of the high scores
+// [v] bug: incorrect testing if it is the high score
 // [_] incorporate react-zoom-pan-pinch
 
 apiRoute.post("/log-in", apiController.postAdminLogIn);
