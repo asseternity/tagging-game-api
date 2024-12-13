@@ -71,7 +71,42 @@ const postNewTask = async (req, res, next) => {
         radius: parseInt(req.body.radius),
       },
     });
-    return res.status(200);
+    res.render("create_tasks");
+  } catch (err) {
+    return next(err);
+  }
+};
+
+const getUpdateTasks = async (req, res, next) => {
+  try {
+    const taskId = parseInt(req.params.task_id);
+    const task = await prisma.task.findUnique({
+      where: { id: taskId },
+    });
+    if (!task) {
+      return res.status(404).send("Task not found");
+    }
+    res.render("update_task", { task });
+  } catch (err) {
+    return next(err);
+  }
+};
+
+const postUpdateTasks = async (req, res, next) => {
+  try {
+    const taskId = parseInt(req.params.task_id);
+    const updatedData = {
+      text: req.body.text,
+      winText: req.body.winText,
+      coordX: parseFloat(req.body.coordX),
+      coordY: parseFloat(req.body.coordY),
+      radius: parseInt(req.body.radius),
+    };
+    await prisma.task.update({
+      where: { id: taskId },
+      data: updatedData,
+    });
+    res.render("create_tasks");
   } catch (err) {
     return next(err);
   }
@@ -83,4 +118,6 @@ module.exports = {
   postDeleteTask,
   postRandomTask,
   postNewTask,
+  getUpdateTasks,
+  postUpdateTasks,
 };

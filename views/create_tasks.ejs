@@ -37,6 +37,13 @@
         >
           <button type="submit">Delete task</button>
         </form>
+        <form
+          action="/api/update_task/<%= tasks[i].id %>"
+          method="GET"
+          style="display: inline"
+        >
+          <button type="submit">Update task</button>
+        </form>
       </li>
     </ul>
     <% } %> <% } else { %>

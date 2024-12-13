@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TG - Update task</title>
+  </head>
+  <body>
+    <form action="/api/update_task/<%= task.id %>" method="POST">
+      <label for="text">Text</label>
+      <input type="text" id="text" name="text" value="<%= task.text %>" />
+      <label for="winText">winText</label>
+      <input
+        type="text"
+        id="winText"
+        name="winText"
+        value="<%= task.winText %>"
+      />
+      <label for="coordX">coordX</label>
+      <input type="text" id="coordX" name="coordX" value="<%= task.coordX %>" />
+      <label for="coordY">coordY</label>
+      <input type="text" id="coordY" name="coordY" value="<%= task.coordY %>" />
+      <label for="radius">radius</label>
+      <input type="text" id="radius" name="radius" value="<%= task.radius %>" />
+      <button>Update task</button>
+    </form>
+  </body>
+</html>

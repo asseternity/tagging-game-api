@@ -10,8 +10,8 @@ const apiController = require("../controllers/apiController");
 // [v] create a new tasks route
 // [v] create the Ukai task
 // [v] fix the bug of same tasks appearing
-// [_] view to update / change tasks
-// [_] fix the location of ardester task
+// [v] view to update / change tasks
+// [v] fix the location of ardester task
 // [_] make it possible to put more than one task in one spot: winTexts being opaque AND pointer-none!
 // [_] add tasks that still reference trowulan begnion etc
 // [_] tell me if my high score is top 5 or not (auto yes if less then 5 scores)
@@ -23,5 +23,7 @@ apiRoute.get("/create_tasks", apiController.getAdminPage);
 apiRoute.post("/delete_task/:task_id", apiController.postDeleteTask);
 apiRoute.post("/random_task", apiController.postRandomTask);
 apiRoute.post("/new_task", apiController.postNewTask);
+apiRoute.get("/update_task/:task_id", apiController.getUpdateTasks);
+apiRoute.post("/update_task/:task_id", apiController.postUpdateTasks);
 
 module.exports = apiRoute;
