@@ -12,10 +12,13 @@ const apiController = require("../controllers/apiController");
 // [v] fix the bug of same tasks appearing
 // [v] view to update / change tasks
 // [v] fix the location of ardester task
-// [_] make it possible to put more than one task in one spot: winTexts being opaque AND pointer-none!
-// [_] add tasks that still reference trowulan begnion etc
-// [_] tell me if my high score is top 5 or not (auto yes if less then 5 scores)
-// [_] post to update the top 5 scores if yes (frontend should then show a form to write in your username)
+// [v] make it possible to put more than one task in one spot: winTexts being opaque AND pointer-none!
+// [v] add tasks that still reference trowulan begnion etc
+// [v] game completed if no tasks
+// [v] tell me if my high score is top 5 or not (auto yes if less then 5 scores)
+// [v] post to update the top 5 scores if yes (frontend should then show a form to write in your username)
+// [_] bug: keys of the high scores
+// [_] bug: incorrect testing if it is the high score
 // [_] incorporate react-zoom-pan-pinch
 
 apiRoute.post("/log-in", apiController.postAdminLogIn);
@@ -25,5 +28,8 @@ apiRoute.post("/random_task", apiController.postRandomTask);
 apiRoute.post("/new_task", apiController.postNewTask);
 apiRoute.get("/update_task/:task_id", apiController.getUpdateTasks);
 apiRoute.post("/update_task/:task_id", apiController.postUpdateTasks);
+apiRoute.post("/is_it_high_score", apiController.postCheckIfHighScore);
+apiRoute.get("/top_five", apiController.getTopFiveHighScores);
+apiRoute.post("/new_high_score", apiController.postNewHighScore);
 
 module.exports = apiRoute;
