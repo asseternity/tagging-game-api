@@ -19,7 +19,7 @@ const apiController = require("../controllers/apiController");
 // [v] post to update the top 5 scores if yes (frontend should then show a form to write in your username)
 // [v] bug: keys of the high scores
 // [v] bug: incorrect testing if it is the high score
-// [_] incorporate react-zoom-pan-pinch
+// [v] confirm button at the bottom
 
 apiRoute.post("/log-in", apiController.postAdminLogIn);
 apiRoute.get("/create_tasks", apiController.getAdminPage);
