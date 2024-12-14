@@ -8,7 +8,7 @@ const app = express();
 // cors
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://asseternity.github.io/",
     credentials: true,
   })
 );
